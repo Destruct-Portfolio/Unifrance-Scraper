@@ -60,11 +60,12 @@ router.addHandler("detail", async ({ request, page, log }) => {
 
     const info = await page.evaluate((selectors) => {
         let info: FilmInfo = {
+            year:null,
             url: null,
             title: null,
             realization: null,
             genre: null,
-            subgenre: null,
+            subgenre:  null,
             production: null,
             coproduction: null,
             type: null,
