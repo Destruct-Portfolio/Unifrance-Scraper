@@ -8,6 +8,7 @@
     },
     "dependencies": {
         "@destruct/puppeteer-wrapper": "^1.0.2",
+        "@mrodrig/json-2-csv-cli": "^4.1.0",
         "apify": "^3.1.10",
         "crawlee": "^3.5.4",
         "dotenv": "^16.3.1",
@@ -23,11 +24,12 @@
         "typescript": "^5.2.2"
     },
     "scripts": {
-        "start": "npm run start:prod",
+        "start": "npm run start:prod && npm run convert",
         "prestart": "npm run build",
         "start:prod": "node dist/main.js",
         "start:dev": "node --no-warnings=ExperimentalWarning --loader ts-node/esm/transpile-only src/main.ts",
         "build": "tsc",
+        "convert": "json2csv ./storage/key_value_stores/default/movies.json --output movies.csv",
         "lint": "eslint ./src --ext .ts",
         "lint:fix": "eslint ./src --ext .ts --fix",
         "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
