@@ -75,9 +75,12 @@ router.addHandler("detail", async ({ request, page, log }) => {
         info.url = document.location.href;
 
         info.title = document.querySelector(selectors.title)?.textContent!;
+        
         info.production = document.querySelector(selectors.production)
             ?.textContent!;
-        info.year = document.querySelector(selectors.year)?.textContent!;
+        // added year 
+        info.year = document.querySelector('#main-content > div.jumbotron.uni-banner.text-white.bg-black > div.jumbotron-inner > div:nth-child(3) > div > div > div:nth-child(3) > strong')!.textContent;
+
         document.querySelectorAll(selectors.sections).forEach((section) => {
             const title = section
                 .querySelector(selectors.section_title)!
@@ -134,6 +137,7 @@ router.addHandler("detail", async ({ request, page, log }) => {
         return info;
     }, _.data_locators);
 
+    console.log(info);
     const content = await KeyValueStore.getValue<Array<typeof info>>("movies");
     await KeyValueStore.setValue("movies", [...content!, info]);
 
