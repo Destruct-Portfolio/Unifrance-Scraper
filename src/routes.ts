@@ -77,7 +77,7 @@ router.addHandler("detail", async ({ request, page, log }) => {
         info.title = document.querySelector(selectors.title)?.textContent!;
         info.production = document.querySelector(selectors.production)
             ?.textContent!;
-
+        info.year = document.querySelector(selectors.year)?.textContent!;
         document.querySelectorAll(selectors.sections).forEach((section) => {
             const title = section
                 .querySelector(selectors.section_title)!
