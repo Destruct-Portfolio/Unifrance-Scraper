@@ -79,7 +79,7 @@ router.addHandler("detail", async ({ request, page, log }) => {
         info.production = document.querySelector(selectors.production)
             ?.textContent!;
         // added year 
-        info.year = document.querySelector('#main-content > div.jumbotron.uni-banner.text-white.bg-black > div.jumbotron-inner > div:nth-child(3) > div > div > div:nth-child(3) > strong')?.textContent;
+        info.year = document.querySelector('#main-content > div.jumbotron.uni-banner.text-white.bg-black > div.jumbotron-inner > div:nth-child(3) > div > div > div:nth-child(3) > strong') ? document.querySelector('#main-content > div.jumbotron.uni-banner.text-white.bg-black > div.jumbotron-inner > div:nth-child(3) > div > div > div:nth-child(3) > strong').textContent : null;
 
         document.querySelectorAll(selectors.sections).forEach((section) => {
             const title = section
