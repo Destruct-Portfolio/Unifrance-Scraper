@@ -29,8 +29,8 @@ const crawler = new PuppeteerCrawler({
     requestHandler: router,
     launchContext: {
         launchOptions: {
-            executablePath: '/usr/bin/chromium-browser',
-            headless: true
+            // executablePath: '/usr/bin/chromium-browser',
+            headless: false
         },
     },
 });
